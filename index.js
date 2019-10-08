@@ -1,7 +1,7 @@
-const wssConfig = Object.assign({
+const wssConfig = {
     host: '127.0.0.1',
     port: 8010
-}, options);
+};
 
 const wsPingInterval = 30 * 1000;
 

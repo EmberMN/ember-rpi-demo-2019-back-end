@@ -8,6 +8,9 @@
   },
   "author": "Jacob Quant <jacobq@gmail.com>",
   "homepage": "https://github.com/EmberMN/ember-rpi-demo-2019-back-end#readme",
+  "scripts": {
+    "start": "node index.js"
+  },
   "main": "ERROR - not designed to be imported as a module",
   "license": "MIT",
   "dependencies": {

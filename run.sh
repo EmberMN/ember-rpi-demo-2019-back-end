@@ -55,7 +55,6 @@ echo "YARN_BIN=$YARN_BIN"
 
 PROG_DIR=$(dirname $(realpath "$0"))
 NODE_MODULES_DIR=$PROG_DIR/node_modules
-BUILD_DIR=$PROG_DIR/build
 
 cd $PROG_DIR
 
@@ -88,12 +87,6 @@ do
     then
         log "${YELLOW}Installing dependencies${NOCOLOR}";
         $YARN_BIN
-    fi
-
-    if [ ! -f $BUILD_DIR/src/index.js ]
-    then
-        log "${YELLOW}Building from source${NOCOLOR}";
-        $NPM_BIN run build
     fi
 
     if $SYNC_TIME
