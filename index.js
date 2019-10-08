@@ -1,9 +1,19 @@
+const wsPingInterval = 30 * 1000;
 const wssConfig = {
-    host: '127.0.0.1',
-    port: 8010
+  host: '127.0.0.1',
+  port: 8010
 };
 
-const wsPingInterval = 30 * 1000;
+const gpioMapping = {
+  button: { pin: 40 },
+  led: { pin: 38 },
+};
+
+
+const rpio = require('rpio');
+rpio.open(gpioMapping.button.pin, rpio.INPUT, rpio.PULL_UP);
+rpio.open(gpioMapping.led.pin, rpio.OUTPUT, rpio.LOW);
+
 
 const WebSocketServer = require('ws').Server;
 const wss = new WebSocketServer(wssConfig);
@@ -34,7 +44,8 @@ wss.on('connection', function(ws, request) {
   ws.on('message', async function(message) {
     log(`Received: ${message} (${typeof message})`);
     const handlers = {
-      // TODO: write handlers (button, LED, LCD, ...)
+      readButton: () => rpio.read(gpioMapping.button.pin),
+      setLED: ({ enable }) => rpio.write(gpioMapping.led.pin, enable ? rpio.HIGH : rpio.LOW),
     };
     try {
       const { command, ...params } = typeof message === 'string' ? JSON.parse(message) : message;
