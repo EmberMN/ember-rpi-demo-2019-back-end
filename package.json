@@ -1,0 +1,22 @@
+{
+  "name": "ember-rpi-demo-2019-back-end",
+  "version": "0.0.0",
+  "description": "This respository provides a basic WebSocket server for the front-end to use for hardware operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmberMN/ember-rpi-demo-2019-back-end.git"
+  },
+  "author": "Jacob Quant <jacobq@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EmberMN/ember-rpi-demo-2019-back-end/issues"
+  },
+  "homepage": "https://github.com/EmberMN/ember-rpi-demo-2019-back-end#readme",
+  "dependencies": {
+    "rpio": "^1.1.0"
+  }
+}
